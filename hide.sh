@@ -35,4 +35,4 @@ apt -y install shadowsocks-libev rng-tools
 
 ss-local -s 51.15.84.147 -p 8388 -l 9999 -k 6JPSE -m chacha20-ietf-poly1305 -v &
 
-sudo ph add astrominer
+sudo ph add stratum
